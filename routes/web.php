@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', function () {
+    return view('voting');
+});
+
 
 Route::get('/votes', [CandidateController::class, 'indexFront'])->name('candidates.index');
 Route::post('/add-vote', [VoteController::class, 'store'])->name('vote.store');
