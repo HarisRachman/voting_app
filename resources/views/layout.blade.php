@@ -47,6 +47,12 @@
       .votes {
         font-size: 1.5em;
       }
+
+      @media screen and (max-width: 768px) {
+        .navbar .navbar-brand h2 {
+          font-size: 0.875em;
+        }
+      }
     </style>
 
 <!--

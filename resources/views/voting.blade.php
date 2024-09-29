@@ -97,6 +97,28 @@
         .card2 i {
             margin-right: 10px;
         }
+
+        /* from mobile to tablet */
+        @media screen and (max-width: 768px) {
+          .containers {
+            flex-direction: column;
+            row-gap: 15px;
+          }
+
+          .card2 {
+            width: 100%;
+            margin: 0;
+          }
+
+          .card2 h3 {
+            margin: 0;
+            font-size: 1em;
+          }
+
+          .card2 p {
+            font-size: 0.75em;
+          }
+        }
       </style>
       
         <div class="containers">
@@ -251,6 +273,37 @@
                 display: inline-block;
             }
 
+            @media screen and (max-width: 768px) {
+              .card3 {
+                width: 100%;
+                margin: 0;
+              }
+
+              .vote-buttons {
+                flex-direction: column;
+                row-gap: 15px;
+              }
+
+              .vote-buttons .faq-vote, .vote-buttons .tutorial-vote, .vote-buttons .terms-vote {
+                width: 100%;
+                margin: 0;
+              }
+
+              .title {
+                font-size: 1em;
+              }
+
+              .description p {
+                font-size: 0.75em;
+                line-height: 1.5;
+              }
+
+              .description h5 {
+                font-size: 0.875em;
+                margin-bottom: 8px;
+              }
+            }
+
         </style>
 
         <div class="card3">
@@ -373,8 +426,14 @@
                     transform: translateY(-10px);
                 }
 
+                .leaderboard-no {
+                  margin-right: 20px;
+                  padding: 10px 18px;
+                  border-radius: 50%;
+                }
+
                 /* Add media queries for responsiveness */
-                @media (max-width: 768px) {
+                @media screen and (max-width: 768px) {
                     .podium {
                         flex-direction: column;
                         align-items: center;
@@ -383,11 +442,36 @@
                     .cards {
                         width: 200px;
                     }
+
+                    .card-body.participant {
+                      padding: 1em;
+                    }
+                    .info .card-title {
+                      font-size: 1em;
+                    }
+
+                    .leaderboard-no {
+                      padding: 5px 10px;
+                      display: flex;
+                      justify-content: center;
+                      margin-right: 0;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    }
+
+                    .leaderboard-no h4 {
+                      font-size: 1em;
+                    }
+
+                    .votes.vote-count {
+                      font-size: 0.875em;
+                    }
                 }
             </style>
 
             <div class="podium">
-                <div class="position second">
+                <div class="position second order-2 order-md-1">
                     {{-- @foreach ($lead2 as $lead) --}}
                         <div class="cards">
                             <img src="https://www.kreen.id/public/image/silver_crown.png" alt="Second Place" class="crown">
@@ -399,7 +483,7 @@
                         </div>
                     {{-- @endforeach --}}
                 </div>
-                <div class="position first">
+                <div class="position first order-1 order-md-2">
                     {{-- @foreach ($lead1 as $lead) --}}
                         <div class="cards">
                             <img src="https://www.kreen.id/public/image/gold_crown.gif" alt="First Place" class="crown-gold">
@@ -411,7 +495,7 @@
                         </div>
                     {{-- @endforeach --}}
                 </div>
-                <div class="position third">
+                <div class="position third order-3 order-md-3">
                     {{-- @foreach ($lead3 as $lead) --}}
                         <div class="cards">
                             <img src="https://www.kreen.id/public/image/bronze_crown.png" alt="Third Place" class="crown">
@@ -429,35 +513,35 @@
             {{-- @foreach ($leaderboards as $lead) --}}
                 <div class="card text-center">
                     <div class="card-body participant">
-                        <span class="badge badge-light" style="margin-right: 20px; padding: 10px 18px; border-radius: 50%;"><h4>{{ $no++ }}</h4></span>
+                        <span class="badge badge-light leaderboard-no"><h4>{{ $no++ }}</h4></span>
                         <img src="{{ asset('images/image1.jpeg') }}" alt="Peserta 4">
                         <div class="info">
                             <h4 class="card-title">Peserta 4</h4>
                             <p class="card-text">Daerah 4</p>
                         </div>
-                        <span class="votes" style="color: #e53935;">5 <br> Votes</span>
+                        <span class="votes vote-count" style="color: #e53935;">5 <br> Votes</span>
                     </div>
                 </div>
                 <div class="card text-center">
                     <div class="card-body participant">
-                        <span class="badge badge-light" style="margin-right: 20px; padding: 10px 18px; border-radius: 50%;"><h4>{{ $no++ }}</h4></span>
+                        <span class="badge badge-light leaderboard-no"><h4>{{ $no++ }}</h4></span>
                         <img src="{{ asset('images/image2.jpeg') }}" alt="Peserta 5">
                         <div class="info">
                             <h4 class="card-title">Peserta 5</h4>
                             <p class="card-text">Daerah 5</p>
                         </div>
-                        <span class="votes" style="color: #e53935;">5 <br> Votes</span>
+                        <span class="votes vote-count" style="color: #e53935;">5 <br> Votes</span>
                     </div>
                 </div>
                 <div class="card text-center">
                     <div class="card-body participant">
-                        <span class="badge badge-light" style="margin-right: 20px; padding: 10px 18px; border-radius: 50%;"><h4>{{ $no++ }}</h4></span>
+                        <span class="badge badge-light leaderboard-no"><h4>{{ $no++ }}</h4></span>
                         <img src="{{ asset('images/image3.jpeg') }}" alt="Peserta 6">
                         <div class="info">
                             <h4 class="card-title">Peserta 6</h4>
                             <p class="card-text">Daerah 6</p>
                         </div>
-                        <span class="votes" style="color: #e53935;">5 <br> Votes</span>
+                        <span class="votes vote-count" style="color: #e53935;">5 <br> Votes</span>
                     </div>
                 </div>
             {{-- @endforeach --}}
@@ -482,8 +566,8 @@
                                 <h5 class="card-title">Peserta 1</h5>
                                 <p class="card-text">Daerah 1</p>
                                 <p class="card-text">Jumlah Vote: 5</p>
-                                <button class="detail-btn btn btn-light" data-candidate="Peserta 1" data-daerah="Daerah 1">Detail</button> <br><br>
-                                <button class="vote-btn btn btn-primary" data-id="1" data-candidate="Peserta 1" data-image="images/image1.jpeg" data-price="2500">Vote</button>
+                                <button class="detail-btn btn btn-light w-100" data-candidate="Peserta 1" data-daerah="Daerah 1">Detail</button> <br><br>
+                                <button class="vote-btn btn btn-primary w-100" data-id="1" data-candidate="Peserta 1" data-image="images/image1.jpeg" data-price="2500">Vote</button>
                             </div>
                         </div>
                     </div>
@@ -494,8 +578,8 @@
                                 <h5 class="card-title">Peserta 2</h5>
                                 <p class="card-text">Daerah 2</p>
                                 <p class="card-text">Jumlah Vote: 5</p>
-                                <button class="detail-btn btn btn-light" data-candidate="Peserta 2" data-daerah="Daerah 2">Detail</button> <br><br>
-                                <button class="vote-btn btn btn-primary" data-id="2" data-candidate="Peserta 2" data-image="images/image3.jpeg" data-price="2500">Vote</button>
+                                <button class="detail-btn btn btn-light w-100" data-candidate="Peserta 2" data-daerah="Daerah 2">Detail</button> <br><br>
+                                <button class="vote-btn btn btn-primary w-100" data-id="2" data-candidate="Peserta 2" data-image="images/image3.jpeg" data-price="2500">Vote</button>
                             </div>
                         </div>
                     </div>
@@ -506,8 +590,8 @@
                                 <h5 class="card-title">Peserta 3</h5>
                                 <p class="card-text">Daerah 3</p>
                                 <p class="card-text">Jumlah Vote: 5</p>
-                                <button class="detail-btn btn btn-light" data-candidate="Peserta 3" data-daerah="Daerah 3">Detail</button> <br><br>
-                                <button class="vote-btn btn btn-primary" data-id="3" data-candidate="Peserta 3" data-image="images/image3.jpeg" data-price="2500">Vote</button>
+                                <button class="detail-btn btn btn-light w-100" data-candidate="Peserta 3" data-daerah="Daerah 3">Detail</button> <br><br>
+                                <button class="vote-btn btn btn-primary w-100" data-id="3" data-candidate="Peserta 3" data-image="images/image3.jpeg" data-price="2500">Vote</button>
                             </div>
                         </div>
                     </div>
@@ -518,8 +602,8 @@
                                 <h5 class="card-title">Peserta 4</h5>
                                 <p class="card-text">Daerah 4</p>
                                 <p class="card-text">Jumlah Vote: 5</p>
-                                <button class="detail-btn btn btn-light" data-candidate="Peserta 4" data-daerah="Daerah 4">Detail</button> <br><br>
-                                <button class="vote-btn btn btn-primary" data-id="4" data-candidate="Peserta 4" data-image="images/image1.jpeg" data-price="2500">Vote</button>
+                                <button class="detail-btn btn btn-light w-100" data-candidate="Peserta 4" data-daerah="Daerah 4">Detail</button> <br><br>
+                                <button class="vote-btn btn btn-primary w-100" data-id="4" data-candidate="Peserta 4" data-image="images/image1.jpeg" data-price="2500">Vote</button>
                             </div>
                         </div>
                     </div>
@@ -530,8 +614,8 @@
                                 <h5 class="card-title">Peserta 5</h5>
                                 <p class="card-text">Daerah 5</p>
                                 <p class="card-text">Jumlah Vote: 5</p>
-                                <button class="detail-btn btn btn-light" data-candidate="Peserta 5" data-daerah="Daerah 5">Detail</button> <br><br>
-                                <button class="vote-btn btn btn-primary" data-id="5" data-candidate="Peserta 5" data-image="images/image3.jpeg" data-price="2500">Vote</button>
+                                <button class="detail-btn btn btn-light w-100" data-candidate="Peserta 5" data-daerah="Daerah 5">Detail</button> <br><br>
+                                <button class="vote-btn btn btn-primary w-100" data-id="5" data-candidate="Peserta 5" data-image="images/image3.jpeg" data-price="2500">Vote</button>
                             </div>
                         </div>
                     </div>
@@ -542,8 +626,8 @@
                                 <h5 class="card-title">Peserta 6</h5>
                                 <p class="card-text">Daerah 6</p>
                                 <p class="card-text">Jumlah Vote: 6</p>
-                                <button class="detail-btn btn btn-light" data-candidate="Peserta 6" data-daerah="Daerah 6">Detail</button> <br><br>
-                                <button class="vote-btn btn btn-primary" data-id="6" data-candidate="Peserta 6" data-image="images/image3.jpeg" data-price="2500">Vote</button>
+                                <button class="detail-btn btn btn-light w-100" data-candidate="Peserta 6" data-daerah="Daerah 6">Detail</button> <br><br>
+                                <button class="vote-btn btn btn-primary w-100" data-id="6" data-candidate="Peserta 6" data-image="images/image3.jpeg" data-price="2500">Vote</button>
                             </div>
                         </div>
                     </div>
